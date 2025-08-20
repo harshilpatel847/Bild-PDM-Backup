@@ -21,6 +21,11 @@ import time
 from urllib.parse import urlparse
 import re
 
+# Script version information
+__version__ = "1.0.0"
+__author__ = "Harshil Patel, Scrub Daddy, Inc."
+__description__ = "Complete backup solution for Bild PDM accounts"
+
 class BildAPIClient:
     def __init__(self, api_token: str, backup_location: str, base_url: str = "https://sandbox-api.getbild.com"):
         """
@@ -436,6 +441,20 @@ class BildAPIClient:
             print(f"\n✓ Backup log saved to: {log_path}")
         except Exception as e:
             print(f"\n✗ Error saving backup log: {e}")
+
+
+def display_version_info():
+    """
+    Display script version and information
+    """
+    print("=" * 80)
+    print("BILD PDM COMPLETE BACKUP TOOL")
+    print("=" * 80)
+    print(f"Version: {__version__}")
+    print(f"Description: {__description__}")
+    print(f"Author: {__author__}")
+    print(f"Python Version: {sys.version.split()[0]}")
+    print("=" * 80)
 
 
 def load_api_key() -> str:
